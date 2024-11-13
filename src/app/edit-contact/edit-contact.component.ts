@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Contact } from '../contacts/contact.model';
+import { ContactsService } from '../contacts/contacts.service';
 
 
 @Component({
@@ -31,11 +32,17 @@ export class EditContactComponent implements OnInit {
     },
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private contactsService: ContactsService) { }
 
   ngOnInit() {
     const contactId = this.route.snapshot.params['id'];
-    if (!contactId) return
+    console.log('Contact ID', contactId);
+    if (!contactId) return;
+    this.contactsService.getContact(contactId).subscribe(contact => {
+      if (contact) {
+        this.contact = contact;
+      }
+    });
   }
 
   saveContact() {
