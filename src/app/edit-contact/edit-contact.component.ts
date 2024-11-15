@@ -59,7 +59,7 @@ export class EditContactComponent implements OnInit {
     //console.log(this.contact.personal, typeof this.contact.personal);
     //console.log(this.contact.favoritesRanking, typeof this.contact.favoritesRanking);
     console.log(this.contact.dateOfBirth, typeof this.contact.dateOfBirth);
-    this.contactsService.saveContact(this.contact).subscribe(
+    this.contactsService.saveContact(form.value).subscribe(
       () => this.router.navigate(['/contacts'])
     );
   }
