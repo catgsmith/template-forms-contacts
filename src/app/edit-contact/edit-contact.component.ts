@@ -2,14 +2,14 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Contact } from '../contacts/contact.model';
+import { Contact, addressTypeValues, phoneTypeValues } from '../contacts/contact.model';
 import { ContactsService } from '../contacts/contacts.service';
-import { phoneTypeValues} from "../contacts/contact.model";
-import { addressTypeValues } from '../contacts/contact.model';
+import { RestrictedWordsValidator} from "../validators/restricted-words-validator.directive";
+
 
 
 @Component({
-  imports: [CommonModule, FormsModule, NgOptimizedImage,],
+  imports: [CommonModule, FormsModule, NgOptimizedImage, RestrictedWordsValidator],
   standalone: true,
   templateUrl: './edit-contact.component.html',
   styleUrls: ['./edit-contact.component.css']
@@ -59,7 +59,7 @@ export class EditContactComponent implements OnInit {
     //console.log(this.contact.personal, typeof this.contact.personal);
     //console.log(this.contact.favoritesRanking, typeof this.contact.favoritesRanking);
     console.log(this.contact.dateOfBirth, typeof this.contact.dateOfBirth);
-    this.contactsService.saveContact(this.contact).subscribe(
+    this.contactsService.saveContact(form.value).subscribe(
       () => this.router.navigate(['/contacts'])
     );
   }
