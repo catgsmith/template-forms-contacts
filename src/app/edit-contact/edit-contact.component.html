@@ -7,7 +7,9 @@
       <nav>Name/Info</nav>
       <div>
         <input type="hidden" [ngModel]="contact.id" name="id" />
-        <input placeholder="First Name" [(ngModel)]="contact.firstName" name="firstName"/>
+        <input placeholder="First Name" [(ngModel)]="contact.firstName" name="firstName" required minlength="3" #firstName="ngModel" [class.error]="firstName.invalid && firstName.touched"  />
+        <em *ngIf="firstName.errors?.['required'] && firstName.touched" > Enter a first name </em>
+        <em *ngIf="firstName.errors?.['minlength'] && firstName.touched" > First Name must be at least 3 characters </em>
         <input placeholder="Last Name" [(ngModel)]="contact.lastName" name="lastName"/>
         <input placeholder="Date of Birth" [(ngModel)]="contact.dateOfBirth" name="dateOfBirth" />
         <div>
