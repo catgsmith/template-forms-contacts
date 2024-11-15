@@ -49,7 +49,7 @@ export class EditContactComponent implements OnInit {
 
   saveContact(form: NgForm) {
     console.log('Form', form.value);
-    this.contactsService.saveContact(this.contact).subscribe(
+    this.contactsService.saveContact(form.value).subscribe(
       () => this.router.navigate(['/contacts'])
     );
   }
