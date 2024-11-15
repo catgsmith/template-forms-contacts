@@ -10,21 +10,21 @@
 
 body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
   color: #777;
 }
 
 input,
 textarea {
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 10px;
   border: 1px solid #ddd;
   color: #555;
 }
 
 select {
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 10px;
   border: 1px solid #ddd;
   color: #555;
@@ -37,7 +37,7 @@ select {
 
 button {
   position: relative;
-  font-size: 22px;
+  font-size: 18px;
   padding: 10px;
   border: none;
   color: var(--font-color-dark-bg);
