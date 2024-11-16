@@ -11,7 +11,7 @@
         <em *ngIf="firstName.errors?.['required'] && firstName.touched" > Enter a first name </em>
         <em *ngIf="firstName.errors?.['minlength'] && firstName.touched" > First Name must be at least 3 characters </em>
         <input placeholder="Last Name" [(ngModel)]="contact.lastName" name="lastName"/>
-        <input placeholder="Date of Birth" [(ngModel)]="contact.dateOfBirth" name="dateOfBirth" />
+        <input type="date" placeholder="Date of Birth" [(ngModel)]="contact.dateOfBirth" name="dateOfBirth" />
         <div>
           <span>Favorites Ranking:</span>
           <input type='range' min="0" max="5" placeholder="Favorites Ranking" [(ngModel)]="contact.favoritesRanking" name="favoritesRanking"/>
