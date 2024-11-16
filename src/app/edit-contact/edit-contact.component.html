@@ -6,6 +6,7 @@
     <section>
       <nav>Name/Info</nav>
       <div>
+        <profile-icon-selector/>
         <input type="hidden" [ngModel]="contact.id" name="id" />
         <input placeholder="First Name" [(ngModel)]="contact.firstName" name="firstName" required minlength="3" #firstName="ngModel" [class.error]="firstName.invalid && firstName.touched"  />
         <em *ngIf="firstName.errors?.['required'] && firstName.touched" > Enter a first name </em>
