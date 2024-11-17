@@ -21,16 +21,16 @@ export class EditContactComponent implements OnInit {
 
   contact: Contact = {
     id: '',
-    icon: '',
+    icon: 'person-01.png',
     personal: false,
     firstName: 'Fred',
     lastName: '',
     dateOfBirth: null,
     favoritesRanking: 0,
-    phone: {
+    phones: [{
       phoneNumber: '',
       phoneType: '',
-    },
+    }],
     address: {
       streetAddress: '',
       city: '',
@@ -56,12 +56,19 @@ export class EditContactComponent implements OnInit {
     });
   }
 
+  addPhone() {
+    this.contact.phones.push({
+      phoneNumber: '',
+      phoneType: ''
+    });
+  }
+
   saveContact(form: NgForm) {
-    //console.log('Form', form.value);
+    console.log('Form', form.value);
     //console.log(this.contact.personal, typeof this.contact.personal);
     //console.log(this.contact.favoritesRanking, typeof this.contact.favoritesRanking);
     console.log(this.contact.dateOfBirth, typeof this.contact.dateOfBirth);
-    this.contactsService.saveContact(form.value).subscribe(
+    this.contactsService.saveContact(this.contact).subscribe(
       () => this.router.navigate(['/contacts'])
     );
   }

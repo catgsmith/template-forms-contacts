@@ -19,7 +19,7 @@ const PROFILE_ICON_VALUE_ACCESSOR: Provider = {
     <ul>
       @for (icon of profileIcons; track $index) {
       <li>
-        <img [src]="'/assets/profile/' + icon" (click)="iconSelected(icon)" [alt]="icon" [class.selected]="icon===selectedIcon"/>
+        <img [src]="'/assets/profile/{{icon}}'" (click)="iconSelected(icon)" [alt]="icon" [class.selected]="icon===selectedIcon"/>
       </li>
       }
     </ul>
